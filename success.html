@@ -1,117 +1,99 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ADEZ TECH | Order Complete</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ADEZ TECH | Order Status</title><style>
+
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    min-height:100vh;
     background:#050505;
     color:#fff;
-    display:flex;
-    flex-direction:column;
+    min-height:100vh;
 }
 
-/* NAVBAR */
-nav{
-    height:70px;
-    padding:0 7%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+header{
     background:#080808;
-    border-bottom:1px solid #222;
+    border-bottom:1px solid #1c1c1c;
+    padding:18px 20px;
 }
 
 .logo{
+    color:#00ff88;
     font-size:23px;
-    font-weight:900;
-}
-
-.logo span{
-    color:#00ff88;
-}
-
-.home{
-    color:#aaa;
-    text-decoration:none;
-    font-size:14px;
-}
-
-.home:hover{
-    color:#00ff88;
-}
-
-/* MAIN */
-main{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:50px 20px;
-}
-
-.success-card{
-    width:100%;
-    max-width:600px;
-    text-align:center;
-    background:#0b0b0b;
-    border:1px solid #222;
-    border-radius:20px;
-    padding:45px 30px;
-}
-
-/* ICON */
-.success-icon{
-    width:80px;
-    height:80px;
-    margin:0 auto 25px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#00ff88;
-    color:#000;
-    font-size:40px;
     font-weight:bold;
 }
 
+.container{
+    width:92%;
+    max-width:600px;
+    margin:45px auto;
+}
+
+.card{
+    background:#0d0d0d;
+    border:1px solid #222;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(0,255,136,.05);
+}
+
+.icon{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:#0b2b1c;
+    border:2px solid #00ff88;
+    color:#00ff88;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+    font-size:38px;
+}
+
 h1{
-    font-size:34px;
+    font-size:28px;
     margin-bottom:10px;
 }
 
-h1 span{
-    color:#00ff88;
-}
-
 .subtitle{
-    color:#777;
+    color:#999;
     line-height:1.6;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
-/* ORDER */
-.order{
-    text-align:left;
-    background:#111;
-    border:1px solid #292929;
-    border-radius:12px;
-    padding:20px;
+.status{
+    display:inline-block;
+    padding:9px 16px;
+    border-radius:30px;
+    background:#332a08;
+    border:1px solid #806d14;
+    color:#ffd84d;
+    font-weight:bold;
+    font-size:14px;
     margin-bottom:25px;
+}
+
+.order{
+    background:#080808;
+    border:1px solid #202020;
+    border-radius:12px;
+    padding:18px;
+    text-align:left;
 }
 
 .row{
     display:flex;
     justify-content:space-between;
-    gap:20px;
+    gap:15px;
     padding:12px 0;
-    border-bottom:1px solid #222;
+    border-bottom:1px solid #1d1d1d;
 }
 
 .row:last-child{
@@ -119,333 +101,225 @@ h1 span{
 }
 
 .label{
-    color:#777;
+    color:#888;
 }
 
 .value{
     text-align:right;
     font-weight:bold;
+    word-break:break-word;
 }
 
-/* DOWNLOAD */
-.download{
-    display:none;
-    width:100%;
-    padding:15px;
-    border-radius:8px;
-    background:#00ff88;
-    color:#000;
-    text-decoration:none;
-    font-weight:bold;
-    margin-bottom:15px;
+.amount{
+    color:#00ff88;
+    font-size:20px;
 }
 
-.download:hover{
-    opacity:.85;
-}
-
-.download.show{
-    display:block;
-}
-
-/* BUTTON */
-.store-btn{
-    display:block;
-    width:100%;
-    padding:14px;
-    border-radius:8px;
-    border:1px solid #333;
-    color:#aaa;
-    text-decoration:none;
-}
-
-.store-btn:hover{
-    border-color:#00ff88;
+.order-id{
     color:#00ff88;
 }
 
-/* NOTICE */
-.notice{
-    margin-top:20px;
+.actions{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+}
+
+.btn{
+    flex:1;
+    display:block;
     padding:14px;
-    background:#101010;
-    border-left:3px solid #00ff88;
-    color:#777;
-    font-size:13px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    text-align:center;
+}
+
+.primary{
+    background:#00ff88;
+    color:#000;
+}
+
+.secondary{
+    background:#111;
+    border:1px solid #333;
+    color:#fff;
+}
+
+.btn:hover{
+    opacity:.85;
+}
+
+.help{
+    margin-top:22px;
+    padding:15px;
+    border-radius:10px;
+    background:#111;
+    color:#999;
+    font-size:14px;
     line-height:1.6;
 }
 
-/* FOOTER */
+.help strong{
+    color:#00ff88;
+}
+
+.error{
+    color:#ff6666;
+    margin-top:15px;
+}
+
 footer{
     text-align:center;
-    padding:25px;
-    border-top:1px solid #222;
     color:#666;
+    padding:30px 10px;
     font-size:13px;
 }
 
-@media(max-width:600px){
+@media(max-width:500px){
 
-    .success-card{
-        padding:35px 20px;
+    .card{
+        padding:22px;
     }
 
     h1{
-        font-size:28px;
+        font-size:24px;
+    }
+
+    .actions{
+        flex-direction:column;
     }
 
     .row{
         font-size:14px;
     }
 }
-</style></head><body><nav><div class="logo">
-    ADEZ<span>TECH</span>
-</div>
 
-<a href="index.html" class="home">
-    ← VPN Store
-</a>
+</style></head><body><header>
+    <div class="logo">ADEZ TECH</div>
+</header><div class="container"><div class="card">
 
-</nav><main><div class="success-card">
+    <div class="icon">✓</div>
 
-    <div class="success-icon">
-        ✓
-    </div>
-
-    <h1>
-        Order <span>Ready</span>
-    </h1>
+    <h1>Order Created</h1>
 
     <p class="subtitle">
-        Your payment has been confirmed by the payment
-        system. Your VPN configuration is ready.
+        Your ADEZ TECH VPN order has been created successfully.
     </p>
 
+    <div class="status">
+        ⏳ AWAITING PAYMENT
+    </div>
 
     <div class="order">
 
         <div class="row">
-
-            <span class="label">
-                Order ID
+            <span class="label">Order ID</span>
+            <span class="value order-id" id="orderId">
+                Loading...
             </span>
-
-            <span class="value" id="orderId">
-                -
-            </span>
-
         </div>
 
-
         <div class="row">
-
-            <span class="label">
-                Product
-            </span>
-
+            <span class="label">Product</span>
             <span class="value" id="product">
-                -
+                Loading...
             </span>
-
         </div>
 
-
         <div class="row">
-
-            <span class="label">
-                Network
-            </span>
-
+            <span class="label">Network</span>
             <span class="value" id="network">
-                -
+                Loading...
             </span>
-
         </div>
 
-
         <div class="row">
-
-            <span class="label">
-                Package
-            </span>
-
+            <span class="label">Package</span>
             <span class="value" id="package">
-                -
+                Loading...
             </span>
-
         </div>
 
-
         <div class="row">
-
-            <span class="label">
-                Amount
+            <span class="label">Amount</span>
+            <span class="value amount" id="amount">
+                KSh 0
             </span>
-
-            <span class="value" id="amount">
-                -
-            </span>
-
         </div>
 
     </div>
 
+    <div class="help">
 
-    <!--
-        IMPORTANT:
-        This download button must only be displayed
-        after your backend verifies the payment.
-    -->
-
-    <a
-        href="#"
-        id="downloadButton"
-        class="download"
-    >
-        ⬇️ Download VPN File
-    </a>
-
-
-    <a
-        href="index.html"
-        class="store-btn"
-    >
-        Continue Shopping
-    </a>
-
-
-    <div class="notice">
-
-        🔐 Keep your VPN configuration private.
-        Do not share your purchased file publicly.
+        <strong>What's next?</strong>
 
         <br><br>
 
-        Need help?
-        Contact ADEZ TECH support.
+        Your order is currently waiting for payment.
+
+        <br><br>
+
+        Once M-Pesa payment is connected and confirmed,
+        your VPN file will be made available for download.
 
     </div>
 
+    <div class="actions">
+
+        <a href="index.html" class="btn primary">
+            Buy Another VPN
+        </a>
+
+        <a href="https://wa.me/254111783552"
+           class="btn secondary"
+           target="_blank">
+            Contact Support
+        </a>
+
+    </div>
+
+    <div class="error" id="error"></div>
+
 </div>
 
-</main><footer><p>
-    © 2026 ADEZ TECH. All Rights Reserved.
-</p>
-
+</div><footer>
+    © 2026 ADEZ TECH VPN STORE
 </footer><script>
 
-/*
-|--------------------------------------------------------------------------
-| ADEZ TECH SUCCESS PAGE
-|--------------------------------------------------------------------------
-|
-| Expected URL:
-|
-| success.html?
-| order=ADEZ123456
-| &product=Safaricom%201GB
-| &network=safaricom
-| &package=1gb
-| &amount=50
-| &download=https://example.com/file
-|
-|--------------------------------------------------------------------------
-*/
+const params = new URLSearchParams(window.location.search);
 
+const orderId = params.get("order");
+const product = params.get("product");
+const network = params.get("network");
+const packageType = params.get("package");
+const amount = params.get("amount");
 
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
+if(!orderId){
 
+    document.getElementById("error").textContent =
+        "No order information was found.";
 
-const order =
-    params.get("order");
+}else{
 
-const product =
-    params.get("product");
+    document.getElementById("orderId").textContent =
+        orderId;
 
-const network =
-    params.get("network");
+    document.getElementById("product").textContent =
+        product || "Unknown";
 
-const packageType =
-    params.get("package");
-
-const amount =
-    params.get("amount");
-
-const download =
-    params.get("download");
-
-
-/* DISPLAY DATA */
-
-document.getElementById("orderId")
-    .textContent =
-        order || "Pending";
-
-document.getElementById("product")
-    .textContent =
-        product || "-";
-
-document.getElementById("network")
-    .textContent =
+    document.getElementById("network").textContent =
         network
-        ? network.toUpperCase()
-        : "-";
+        ? network.charAt(0).toUpperCase() + network.slice(1)
+        : "Unknown";
 
-document.getElementById("package")
-    .textContent =
-        formatPackage(packageType);
+    document.getElementById("package").textContent =
+        packageType
+        ? packageType.toUpperCase()
+        : "Unknown";
 
-document.getElementById("amount")
-    .textContent =
-        amount
-        ? "KSh " + amount
-        : "-";
-
-
-/* FORMAT PACKAGE */
-
-function formatPackage(value){
-
-    const packages = {
-
-        "300mb":"300 MB",
-
-        "500mb":"500 MB",
-
-        "1gb":"1 GB",
-
-        "unlimited":"♾️ Unlimited"
-
-    };
-
-    return packages[value] || value || "-";
-
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| DOWNLOAD LINK
-|--------------------------------------------------------------------------
-|
-| Only show the download button if the backend has supplied
-| a verified download URL.
-|
-*/
-
-if(download){
-
-    const button =
-        document.getElementById(
-            "downloadButton"
-        );
-
-    button.href = download;
-
-    button.classList.add("show");
+    document.getElementById("amount").textContent =
+        "KSh " + Number(amount || 0).toLocaleString();
 
 }
 

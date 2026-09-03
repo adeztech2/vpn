@@ -1,12 +1,13 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ADEZ TECH | Payment</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADEZ TECH | Payment</title><style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -15,736 +16,413 @@ body{
     min-height:100vh;
 }
 
-/* NAVBAR */
-nav{
-    height:70px;
-    padding:0 7%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+header{
     background:#080808;
-    border-bottom:1px solid #222;
+    border-bottom:1px solid #1c1c1c;
+    padding:18px 20px;
 }
 
 .logo{
+    color:#00ff88;
     font-size:23px;
-    font-weight:900;
+    font-weight:bold;
 }
 
-.logo span{
-    color:#00ff88;
+.container{
+    width:92%;
+    max-width:600px;
+    margin:35px auto;
 }
 
 .back{
-    color:#aaa;
+    display:inline-block;
+    color:#00ff88;
     text-decoration:none;
-    font-size:14px;
+    margin-bottom:20px;
 }
 
-.back:hover{
-    color:#00ff88;
-}
-
-/* MAIN */
-.container{
-    width:100%;
-    max-width:1050px;
-    margin:auto;
-    padding:60px 20px;
-}
-
-.page-title{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.page-title h1{
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-.page-title h1 span{
-    color:#00ff88;
-}
-
-.page-title p{
-    color:#777;
-}
-
-/* GRID */
-.payment-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-/* CARDS */
 .card{
-    background:#0b0b0b;
+    background:#0d0d0d;
     border:1px solid #222;
-    border-radius:16px;
-    padding:30px;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 0 25px rgba(0,255,136,.05);
 }
 
-.card h2{
+h1{
+    font-size:27px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#999;
     margin-bottom:25px;
-    font-size:22px;
 }
 
-/* ORDER */
-.order-box{
-    background:#111;
-    border:1px solid #292929;
+.order{
+    background:#080808;
+    border:1px solid #202020;
     border-radius:12px;
-    padding:20px;
+    padding:18px;
+    margin-bottom:25px;
 }
 
-.order-row{
+.row{
     display:flex;
     justify-content:space-between;
-    gap:20px;
-    padding:13px 0;
-    border-bottom:1px solid #222;
+    gap:15px;
+    padding:10px 0;
+    border-bottom:1px solid #1d1d1d;
 }
 
-.order-row:last-child{
+.row:last-child{
     border-bottom:none;
 }
 
-.order-row .label{
-    color:#777;
+.label{
+    color:#888;
 }
 
-.order-row .value{
+.value{
     text-align:right;
     font-weight:bold;
 }
 
-.network{
-    display:inline-block;
-    padding:6px 10px;
-    border-radius:20px;
-    background:#151515;
+.amount{
     color:#00ff88;
-    font-size:12px;
+    font-size:21px;
 }
 
-/* TOTAL */
-.total{
-    margin-top:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.total span:first-child{
-    color:#aaa;
-}
-
-.total span:last-child{
-    font-size:30px;
-    font-weight:bold;
-    color:#00ff88;
-}
-
-/* FORM */
-.form-group{
-    margin-bottom:18px;
-}
-
-.form-group label{
+label{
     display:block;
-    color:#aaa;
-    font-size:14px;
-    margin-bottom:8px;
+    margin:17px 0 7px;
+    color:#ddd;
 }
 
-.form-group input{
+input{
     width:100%;
     padding:14px;
-    background:#050505;
+    border-radius:10px;
     border:1px solid #292929;
-    border-radius:8px;
-    color:#fff;
+    background:#080808;
+    color:white;
     outline:none;
+    font-size:16px;
 }
 
-.form-group input:focus{
+input:focus{
     border-color:#00ff88;
 }
 
-.phone-help{
-    color:#666;
-    font-size:12px;
-    margin-top:6px;
-}
-
-/* PAYMENT METHOD */
-.payment-method{
-    background:#111;
-    border:1px solid #00ff88;
-    border-radius:10px;
-    padding:16px;
-    margin-bottom:20px;
-}
-
-.payment-method strong{
-    color:#00ff88;
-}
-
-.payment-method p{
-    color:#888;
-    font-size:13px;
-    margin-top:5px;
-}
-
-/* BUTTON */
-.pay-btn{
+button{
     width:100%;
+    margin-top:23px;
     padding:15px;
     border:none;
-    border-radius:8px;
+    border-radius:10px;
     background:#00ff88;
     color:#000;
-    font-size:16px;
+    font-size:17px;
     font-weight:bold;
     cursor:pointer;
 }
 
-.pay-btn:hover{
-    opacity:.85;
+button:hover{
+    background:#00dd77;
 }
 
-.pay-btn:disabled{
-    opacity:.5;
+button:disabled{
+    opacity:.6;
     cursor:not-allowed;
 }
 
-/* STATUS */
-.status{
-    display:none;
-    margin-top:20px;
-    padding:15px;
-    border-radius:8px;
+.notice{
+    margin-top:18px;
+    padding:13px;
+    border-radius:10px;
     background:#111;
-    border:1px solid #333;
     color:#aaa;
     font-size:14px;
-    line-height:1.6;
+    line-height:1.5;
 }
 
-.status.show{
-    display:block;
-}
-
-.status.success{
-    border-color:#00ff88;
-    color:#00ff88;
-}
-
-.status.error{
-    border-color:#ff4444;
+.error{
+    display:none;
+    margin-top:15px;
+    padding:13px;
+    border-radius:10px;
+    background:#2a0808;
+    border:1px solid #7a2222;
     color:#ff7777;
 }
 
-/* NOTICE */
-.notice{
-    margin-top:20px;
-    padding:15px;
-    background:#101010;
-    border-left:3px solid #00ff88;
-    color:#777;
-    font-size:13px;
-    line-height:1.6;
+.loading{
+    display:none;
+    text-align:center;
+    margin-top:15px;
+    color:#00ff88;
 }
 
-/* FOOTER */
 footer{
     text-align:center;
-    padding:30px;
-    margin-top:40px;
-    border-top:1px solid #222;
     color:#666;
+    padding:30px 10px;
     font-size:13px;
 }
 
-/* MOBILE */
-@media(max-width:750px){
-
-    .payment-grid{
-        grid-template-columns:1fr;
+@media(max-width:500px){
+    .card{
+        padding:19px;
     }
 
-    .page-title h1{
-        font-size:32px;
+    h1{
+        font-size:24px;
     }
 
-    .container{
-        padding-top:40px;
+    .row{
+        font-size:14px;
     }
 }
-</style></head><body><!-- NAVBAR --><nav><div class="logo">
-    ADEZ<span>TECH</span>
-</div>
+</style></head><body><header>
+    <div class="logo">ADEZ TECH</div>
+</header><div class="container"><a href="index.html" class="back">← Back to Store</a>
 
-<a href="index.html#store" class="back">
-    ← Back to Store
-</a>
+<div class="card">
 
-</nav><!-- MAIN --><main class="container"><div class="page-title">
-
-    <h1>
-        Complete <span>Payment</span>
-    </h1>
-
-    <p>
-        Review your VPN package and enter your payment details.
+    <h1>Complete Your Order</h1>
+    <p class="subtitle">
+        Enter your M-Pesa number to create your VPN order.
     </p>
 
-</div>
+    <div class="order">
 
-
-<div class="payment-grid">
-
-
-    <!-- ORDER SUMMARY -->
-    <section class="card">
-
-        <h2>🛒 Order Summary</h2>
-
-        <div class="order-box">
-
-            <div class="order-row">
-
-                <span class="label">
-                    Product
-                </span>
-
-                <span class="value" id="productName">
-                    Loading...
-                </span>
-
-            </div>
-
-
-            <div class="order-row">
-
-                <span class="label">
-                    Network
-                </span>
-
-                <span class="value">
-                    <span class="network" id="network">
-                        -
-                    </span>
-                </span>
-
-            </div>
-
-
-            <div class="order-row">
-
-                <span class="label">
-                    Package
-                </span>
-
-                <span class="value" id="package">
-                    -
-                </span>
-
-            </div>
-
-
-            <div class="order-row">
-
-                <span class="label">
-                    VPN File
-                </span>
-
-                <span class="value">
-                    Configuration
-                </span>
-
-            </div>
-
+        <div class="row">
+            <span class="label">Product</span>
+            <span class="value" id="product">Loading...</span>
         </div>
 
-
-        <div class="total">
-
-            <span>
-                Total
-            </span>
-
-            <span id="totalPrice">
-                KSh 0
-            </span>
-
+        <div class="row">
+            <span class="label">Network</span>
+            <span class="value" id="network">Loading...</span>
         </div>
 
-
-        <div class="notice">
-
-            🔐 Your order will only be fulfilled after
-            the payment has been successfully verified.
-
+        <div class="row">
+            <span class="label">Package</span>
+            <span class="value" id="package">Loading...</span>
         </div>
 
-    </section>
-
-
-
-    <!-- PAYMENT FORM -->
-    <section class="card">
-
-        <h2>💳 Payment</h2>
-
-
-        <div class="payment-method">
-
-            <strong>📱 M-Pesa</strong>
-
-            <p>
-                Enter the phone number that will be used
-                for the payment request.
-            </p>
-
+        <div class="row">
+            <span class="label">Amount</span>
+            <span class="value amount" id="price">KSh 0</span>
         </div>
 
+    </div>
 
-        <form id="paymentForm">
+    <form id="paymentForm">
 
-            <div class="form-group">
+        <label for="phone">M-Pesa Phone Number</label>
 
-                <label for="phone">
-                    M-Pesa Phone Number
-                </label>
+        <input
+            type="tel"
+            id="phone"
+            placeholder="07XXXXXXXX"
+            maxlength="13"
+            required
+        >
 
-                <input
-                    type="tel"
-                    id="phone"
-                    placeholder="0712345678"
-                    maxlength="13"
-                    required
-                >
+        <label for="email">
+            Email Address <span style="color:#666">(Optional)</span>
+        </label>
 
-                <div class="phone-help">
-                    Example: 0712345678 or 254712345678
-                </div>
+        <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+        >
 
-            </div>
+        <button type="submit" id="submitBtn">
+            Continue
+        </button>
 
+    </form>
 
-            <div class="form-group">
+    <div class="loading" id="loading">
+        Creating your order...
+    </div>
 
-                <label for="email">
-                    Email Address (Optional)
-                </label>
+    <div class="error" id="error"></div>
 
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="you@example.com"
-                >
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="pay-btn"
-                id="payButton"
-            >
-                Pay Now
-            </button>
-
-        </form>
-
-
-        <div
-            class="status"
-            id="status"
-        ></div>
-
-    </section>
+    <div class="notice">
+        🔒 Your details are sent securely to ADEZ TECH.
+        <br><br>
+        <strong>Note:</strong> M-Pesa STK payment will be connected
+        after the order system is confirmed working.
+    </div>
 
 </div>
 
-</main><!-- FOOTER --><footer><p>
-    © 2026 ADEZ TECH. All Rights Reserved.
-</p>
-
-<p>
-    Code • Create • Innovate • Grow 🚀
-</p>
-
+</div><footer>
+    © 2026 ADEZ TECH VPN STORE
 </footer><script>
 
-/*
-|--------------------------------------------------------------------------
-| ADEZ TECH PAYMENT PAGE
-|--------------------------------------------------------------------------
-|
-| Products are received from index.html through URL parameters.
-|
-| Example:
-| payment.html?product=Safaricom%20300MB
-| &network=safaricom
-| &package=300mb
-| &price=20
-|
-|--------------------------------------------------------------------------
-*/
+const params = new URLSearchParams(window.location.search);
 
+const product = params.get("product") || "";
+const network = params.get("network") || "";
+const packageType = params.get("package") || "";
+const price = params.get("price") || "0";
 
-const params = new URLSearchParams(
-    window.location.search
-);
+document.getElementById("product").textContent = product || "Unknown";
+document.getElementById("network").textContent =
+    network ? network.charAt(0).toUpperCase() + network.slice(1) : "Unknown";
 
+document.getElementById("package").textContent =
+    packageType ? packageType.toUpperCase() : "Unknown";
 
-/* GET PRODUCT INFORMATION */
+document.getElementById("price").textContent =
+    "KSh " + Number(price).toLocaleString();
 
-const product =
-    params.get("product") || "Unknown Product";
+const form = document.getElementById("paymentForm");
+const submitBtn = document.getElementById("submitBtn");
+const loading = document.getElementById("loading");
+const errorBox = document.getElementById("error");
 
-const network =
-    params.get("network") || "-";
-
-const packageType =
-    params.get("package") || "-";
-
-const price =
-    params.get("price") || "0";
-
-
-/* DISPLAY PRODUCT */
-
-document.getElementById("productName")
-    .textContent = product;
-
-document.getElementById("network")
-    .textContent =
-        network.toUpperCase();
-
-document.getElementById("package")
-    .textContent =
-        formatPackage(packageType);
-
-document.getElementById("totalPrice")
-    .textContent =
-        "KSh " + price;
-
-
-/* PACKAGE FORMATTER */
-
-function formatPackage(value){
-
-    const packages = {
-
-        "300mb": "300 MB",
-
-        "500mb": "500 MB",
-
-        "1gb": "1 GB",
-
-        "unlimited": "♾️ Unlimited"
-
-    };
-
-    return packages[value] || value;
-
+function showError(message){
+    errorBox.textContent = message;
+    errorBox.style.display = "block";
 }
 
-
-/* PHONE FORMATTER */
+function hideError(){
+    errorBox.style.display = "none";
+}
 
 function normalizePhone(phone){
 
-    phone =
-        phone.replace(/\s+/g,"")
-             .replace(/-/g,"");
+    phone = phone.replace(/\s+/g,"").replace(/-/g,"");
 
-
-    if(phone.startsWith("07")){
-
-        phone =
-            "254" + phone.substring(1);
-
+    if(phone.startsWith("+254")){
+        return phone.substring(1);
     }
 
-    if(phone.startsWith("01")){
-
-        phone =
-            "254" + phone.substring(1);
-
+    if(phone.startsWith("07") || phone.startsWith("01")){
+        return "254" + phone.substring(1);
     }
 
     return phone;
-
 }
 
-
-/* PHONE VALIDATION */
-
-function validKenyanPhone(phone){
-
-    return /^254(7|1)\d{8}$/.test(phone);
-
+function validPhone(phone){
+    return /^254(7|1)[0-9]{8}$/.test(phone);
 }
 
+form.addEventListener("submit", async function(e){
 
-/* PAYMENT FORM */
+    e.preventDefault();
 
-document
-.getElementById("paymentForm")
-.addEventListener("submit", async function(event){
-
-    event.preventDefault();
-
+    hideError();
 
     const phoneInput =
-        document.getElementById("phone");
+        document.getElementById("phone").value.trim();
 
-    const emailInput =
-        document.getElementById("email");
+    const email =
+        document.getElementById("email").value.trim();
 
-    const button =
-        document.getElementById("payButton");
+    const phone = normalizePhone(phoneInput);
 
-    const status =
-        document.getElementById("status");
-
-
-    let phone =
-        normalizePhone(phoneInput.value);
-
-
-    /* VALIDATE PHONE */
-
-    if(!validKenyanPhone(phone)){
-
-        status.className =
-            "status show error";
-
-        status.innerHTML =
-            "❌ Please enter a valid Kenyan M-Pesa number.";
-
+    if(!validPhone(phone)){
+        showError(
+            "Please enter a valid Kenyan phone number, e.g. 0712345678."
+        );
         return;
-
     }
 
-
-    /* CHECK PRODUCT */
-
-    if(
-        !product ||
-        product === "Unknown Product" ||
-        price === "0"
-    ){
-
-        status.className =
-            "status show error";
-
-        status.innerHTML =
-            "❌ Invalid product. Please return to the store and select a package again.";
-
+    if(!product || !network || !packageType){
+        showError(
+            "Invalid product information. Please return to the store and try again."
+        );
         return;
-
     }
-
-
-    /* BUTTON STATE */
-
-    button.disabled = true;
-
-    button.textContent =
-        "Processing...";
-
-
-    status.className =
-        "status show";
-
-    status.innerHTML =
-        "⏳ Preparing your payment request...";
-
 
     /*
-    |--------------------------------------------------------------------------
-    | BACKEND CONNECTION
-    |--------------------------------------------------------------------------
-    |
-    | Replace this section when your M-Pesa backend is ready.
-    |
-    | Example:
-    |
-    | fetch("/api/payment", {
-    |     method: "POST",
-    |     headers: {
-    |         "Content-Type":"application/json"
-    |     },
-    |     body: JSON.stringify({
-    |         product,
-    |         network,
-    |         package: packageType,
-    |         price,
-    |         phone,
-    |         email: emailInput.value
-    |     })
-    | })
-    |
-    |--------------------------------------------------------------------------
+      Product IDs used by server.js:
+      safaricom-300mb
+      safaricom-500mb
+      safaricom-1gb
+      safaricom-unlimited
+      airtel-300mb
+      airtel-500mb
+      airtel-1gb
+      airtel-unlimited
+      telkom-300mb
+      telkom-500mb
+      telkom-1gb
+      telkom-unlimited
     */
 
+    const productId =
+        network.toLowerCase() + "-" + packageType.toLowerCase();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Creating Order...";
+    loading.style.display = "block";
 
     try{
 
+        const response = await fetch("/api/orders",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+                productId:productId,
+                phone:phone,
+                email:email
+            })
+
+        });
+
+        const result = await response.json();
+
+        if(!response.ok || !result.success){
+
+            throw new Error(
+                result.message || "Unable to create order."
+            );
+
+        }
+
+        const order = result.order;
+
         /*
-         * DEMO MODE
-         *
-         * This does NOT claim that money was received.
-         * It simply shows that the form is ready.
-         */
+          Redirect to the order status page.
+        */
 
-        await new Promise(resolve =>
-            setTimeout(resolve,1200)
-        );
+        const successUrl =
+            "success.html?" +
+            "order=" + encodeURIComponent(order.orderId) +
+            "&product=" + encodeURIComponent(order.product) +
+            "&network=" + encodeURIComponent(order.network) +
+            "&package=" + encodeURIComponent(order.package) +
+            "&amount=" + encodeURIComponent(order.amount);
 
-
-        status.className =
-            "status show";
-
-        status.innerHTML =
-
-            "⚠️ Payment gateway is not connected yet.<br><br>" +
-
-            "Your order details are ready:<br>" +
-
-            "<strong>" + product + "</strong><br>" +
-
-            "Amount: <strong>KSh " + price +
-            "</strong><br>" +
-
-            "Phone: <strong>" + phone +
-            "</strong><br><br>" +
-
-            "Connect your M-Pesa backend to send the payment request and verify the transaction.";
-
+        window.location.href = successUrl;
 
     }catch(error){
 
-        status.className =
-            "status show error";
+        console.error(error);
 
-        status.innerHTML =
-            "❌ Something went wrong. Please try again.";
+        showError(
+            error.message ||
+            "Something went wrong. Please try again."
+        );
 
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Continue";
+        loading.style.display = "none";
     }
-
-
-    button.disabled = false;
-
-    button.textContent =
-        "Pay Now";
 
 });
 

@@ -197,7 +197,7 @@ app.get("/api/shopify/products", async (req, res) => {
                 "X-Shopify-Storefront-Access-Token": token
             },
             body: JSON.stringify({
-                query: `query VPNProducts { products(first: 12) { nodes { title description variants(first: 1) { nodes { id price { amount currencyCode } } } } } }`
+                query: `query VPNProducts { products(first: 20) { nodes { id handle title description variants(first: 1) { nodes { id price { amount currencyCode } } } } } }`
             })
         });
         const payload = await response.json();
@@ -205,9 +205,16 @@ app.get("/api/shopify/products", async (req, res) => {
 
         const products = payload.data.products.nodes.map((product, index) => {
             const variant = product.variants.nodes[0];
+            const handle = product.handle || "";
+            const handleParts = handle.split("-");
+            const network = handleParts.find((part) => /safaricom|airtel|telkom/i.test(part)) || "Kenya";
+            const packageName = handleParts.find((part) => /mb|gb|unlimited/i.test(part)) || "Data bundle";
             return {
+                id: handle || product.id,
                 title: product.title,
                 description: product.description || "Private, encrypted VPN access.",
+                network: network.charAt(0).toUpperCase() + network.slice(1),
+                package: packageName.toUpperCase(),
                 price: variant ? `${variant.price.currencyCode === "KES" ? "KSh" : variant.price.currencyCode} ${Number(variant.price.amount).toLocaleString()}` : "See details",
                 period: "one-time access",
                 variantId: variant?.id || "",

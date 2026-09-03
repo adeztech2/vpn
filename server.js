@@ -178,6 +178,88 @@ return /^254(7|1)[0-9]{8}$/.test(phone);
 }
 
 /* =========================================
+SHOPIFY STOREFRONT CATALOG
+========================================= */
+
+app.get("/api/shopify/products", async (req, res) => {
+    const domain = process.env.SHOPIFY_STORE_DOMAIN;
+    const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
+
+    if (!domain || !token) {
+        return res.json({ success: false, products: [] });
+    }
+
+    try {
+        const response = await fetch(`https://${domain}/api/2026-04/graphql.json`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Shopify-Storefront-Access-Token": token
+            },
+            body: JSON.stringify({
+                query: `query VPNProducts { products(first: 12) { nodes { title description variants(first: 1) { nodes { id price { amount currencyCode } } } } } }`
+            })
+        });
+        const payload = await response.json();
+        if (!response.ok || payload.errors) throw new Error("Shopify catalog request failed");
+
+        const products = payload.data.products.nodes.map((product, index) => {
+            const variant = product.variants.nodes[0];
+            return {
+                title: product.title,
+                description: product.description || "Private, encrypted VPN access.",
+                price: variant ? `${variant.price.currencyCode === "KES" ? "KSh" : variant.price.currencyCode} ${Number(variant.price.amount).toLocaleString()}` : "See details",
+                period: "one-time access",
+                variantId: variant?.id || "",
+                featured: index === 1
+            };
+        });
+        return res.json({ success: true, products });
+    } catch (error) {
+        console.error("[v0] Shopify catalog error:", error.message);
+        return res.json({ success: false, products: [] });
+    }
+});
+
+/* =========================================
+SHOPIFY CART CHECKOUT
+========================================= */
+
+app.post("/api/shopify/cart", async (req, res) => {
+    const domain = process.env.SHOPIFY_STORE_DOMAIN;
+    const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
+    const variantId = typeof req.body.variantId === "string" ? req.body.variantId : "";
+
+    if (!domain || !token) {
+        return res.status(503).json({ success: false, message: "Shopify checkout is not configured." });
+    }
+    if (!variantId.startsWith("gid://shopify/ProductVariant/")) {
+        return res.status(400).json({ success: false, message: "A valid Shopify product variant is required." });
+    }
+
+    try {
+        const response = await fetch(`https://${domain}/api/2026-04/graphql.json`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Shopify-Storefront-Access-Token": token
+            },
+            body: JSON.stringify({
+                query: `mutation CreateVPNCart($input: CartInput!) { cartCreate(input: $input) { cart { checkoutUrl } userErrors { field message } } }`,
+                variables: { input: { lines: [{ merchandiseId: variantId, quantity: 1 }] } }
+            })
+        });
+        const payload = await response.json();
+        const errors = payload.data?.cartCreate?.userErrors || payload.errors;
+        if (!response.ok || errors?.length) throw new Error(errors[0]?.message || "Shopify checkout request failed");
+        return res.json({ success: true, checkoutUrl: payload.data.cartCreate.cart.checkoutUrl });
+    } catch (error) {
+        console.error("[v0] Shopify checkout error:", error.message);
+        return res.status(502).json({ success: false, message: "Unable to start Shopify checkout." });
+    }
+});
+
+/* =========================================
 HEALTH CHECK
 ========================================= */
 

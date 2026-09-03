@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ADEZ TECH VPN STORE</title>
-
-<style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ADEZ TECH VPN STORE</title><style>
 *{
     margin:0;
     padding:0;
@@ -136,7 +131,7 @@ nav{
     justify-content:center;
     gap:10px;
     flex-wrap:wrap;
-    margin-bottom:35px;
+    margin-bottom:25px;
 }
 
 .filter{
@@ -199,11 +194,6 @@ nav{
     font-size:28px;
     font-weight:bold;
     margin-bottom:20px;
-}
-
-.price small{
-    font-size:13px;
-    color:#777;
 }
 
 .buy{
@@ -322,434 +312,893 @@ footer{
     }
 
 }
-</style>
-</head>
+</style></head><body><!-- NAVIGATION --><nav><div class="logo">
+    ADEZ<span>TECH</span>
+</div>
 
-<body>
+<ul class="nav-links" id="navLinks">
 
-<!-- NAVIGATION -->
-<nav>
+    <li>
+        <a href="#home">Home</a>
+    </li>
 
-    <div class="logo">
-        ADEZ<span>TECH</span>
-    </div>
+    <li>
+        <a href="#store">VPN Store</a>
+    </li>
 
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#store">VPN Store</a></li>
-        <li><a href="#info">How It Works</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <li>
+        <a href="#info">How It Works</a>
+    </li>
 
-    <div class="menu" onclick="toggleMenu()">☰</div>
+    <li>
+        <a href="#contact">Contact</a>
+    </li>
 
-</nav>
+</ul>
 
+<div
+    class="menu"
+    onclick="toggleMenu()"
+>
+    ☰
+</div>
 
-<!-- HERO -->
-<section class="hero" id="home">
+</nav><!-- HERO --><section class="hero" id="home"><div class="badge">
+    ⚡ ADEZ TECH VPN STORE
+</div>
 
-    <div class="badge">
-        ⚡ ADEZ TECH VPN STORE
-    </div>
+<h1>
+    Fast & Reliable<br>
+    <span>VPN Solutions</span>
+</h1>
 
-    <h1>
-        Fast & Reliable<br>
-        <span>VPN Solutions</span>
-    </h1>
+<p>
+    Browse our VPN configuration store and choose
+    the package that suits your needs.
+    Select your network and data package below.
+</p>
+
+<a
+    href="#store"
+    class="hero-btn"
+>
+    🛒 Browse VPN Store
+</a>
+
+</section><!-- STORE --><section class="store" id="store"><div class="title">
+
+    <h2>
+        VPN Store
+    </h2>
 
     <p>
-        Browse our VPN configuration store and choose
-        the package that suits your needs.
-        Select your network and data package below.
+        Choose your network and preferred package
     </p>
 
-    <a href="#store" class="hero-btn">
-        🛒 Browse VPN Store
+</div>
+
+
+<!-- NETWORK FILTER -->
+<div class="filters">
+
+    <button
+        class="filter active"
+        onclick="filterProducts('all',this)"
+    >
+        All
+    </button>
+
+    <button
+        class="filter"
+        onclick="filterProducts('safaricom',this)"
+    >
+        🟢 Safaricom
+    </button>
+
+    <button
+        class="filter"
+        onclick="filterProducts('airtel',this)"
+    >
+        🔴 Airtel
+    </button>
+
+    <button
+        class="filter"
+        onclick="filterProducts('telkom',this)"
+    >
+        🔵 Telkom
+    </button>
+
+</div>
+
+
+<!-- DATA FILTER -->
+<div class="filters">
+
+    <button
+        class="filter active"
+        onclick="filterData('all',this)"
+    >
+        All Packages
+    </button>
+
+    <button
+        class="filter"
+        onclick="filterData('300mb',this)"
+    >
+        300 MB
+    </button>
+
+    <button
+        class="filter"
+        onclick="filterData('500mb',this)"
+    >
+        500 MB
+    </button>
+
+    <button
+        class="filter"
+        onclick="filterData('1gb',this)"
+    >
+        1 GB
+    </button>
+
+    <button
+        class="filter"
+        onclick="filterData('unlimited',this)"
+    >
+        ♾️ Unlimited
+    </button>
+
+</div>
+
+
+<!-- PRODUCTS -->
+<div
+    class="products"
+    id="products"
+>
+
+
+    <!-- ================= SAFARICOM ================= -->
+
+    <div
+        class="product"
+        data-network="safaricom"
+        data-data="300mb"
+    >
+
+        <div class="network">
+            🟢 SAFARICOM
+        </div>
+
+        <h3>
+            300 MB
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 20
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Safaricom 300MB',
+                'safaricom',
+                '300mb',
+                20
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <div
+        class="product"
+        data-network="safaricom"
+        data-data="500mb"
+    >
+
+        <div class="network">
+            🟢 SAFARICOM
+        </div>
+
+        <h3>
+            500 MB
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 30
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Safaricom 500MB',
+                'safaricom',
+                '500mb',
+                30
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <div
+        class="product"
+        data-network="safaricom"
+        data-data="1gb"
+    >
+
+        <div class="network">
+            🟢 SAFARICOM
+        </div>
+
+        <h3>
+            1 GB
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 50
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Safaricom 1GB',
+                'safaricom',
+                '1gb',
+                50
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <div
+        class="product"
+        data-network="safaricom"
+        data-data="unlimited"
+    >
+
+        <div class="network">
+            🟢 SAFARICOM
+        </div>
+
+        <h3>
+            ♾️ Unlimited
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 100
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Safaricom Unlimited',
+                'safaricom',
+                'unlimited',
+                100
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <!-- ================= AIRTEL ================= -->
+
+    <div
+        class="product"
+        data-network="airtel"
+        data-data="300mb"
+    >
+
+        <div class="network">
+            🔴 AIRTEL
+        </div>
+
+        <h3>
+            300 MB
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 20
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Airtel 300MB',
+                'airtel',
+                '300mb',
+                20
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <div
+        class="product"
+        data-network="airtel"
+        data-data="500mb"
+    >
+
+        <div class="network">
+            🔴 AIRTEL
+        </div>
+
+        <h3>
+            500 MB
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 30
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Airtel 500MB',
+                'airtel',
+                '500mb',
+                30
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <div
+        class="product"
+        data-network="airtel"
+        data-data="1gb"
+    >
+
+        <div class="network">
+            🔴 AIRTEL
+        </div>
+
+        <h3>
+            1 GB
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 50
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Airtel 1GB',
+                'airtel',
+                '1gb',
+                50
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <div
+        class="product"
+        data-network="airtel"
+        data-data="unlimited"
+    >
+
+        <div class="network">
+            🔴 AIRTEL
+        </div>
+
+        <h3>
+            ♾️ Unlimited
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 100
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Airtel Unlimited',
+                'airtel',
+                'unlimited',
+                100
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <!-- ================= TELKOM ================= -->
+
+    <div
+        class="product"
+        data-network="telkom"
+        data-data="300mb"
+    >
+
+        <div class="network">
+            🔵 TELKOM
+        </div>
+
+        <h3>
+            300 MB
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 20
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Telkom 300MB',
+                'telkom',
+                '300mb',
+                20
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <div
+        class="product"
+        data-network="telkom"
+        data-data="500mb"
+    >
+
+        <div class="network">
+            🔵 TELKOM
+        </div>
+
+        <h3>
+            500 MB
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 30
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Telkom 500MB',
+                'telkom',
+                '500mb',
+                30
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <div
+        class="product"
+        data-network="telkom"
+        data-data="1gb"
+    >
+
+        <div class="network">
+            🔵 TELKOM
+        </div>
+
+        <h3>
+            1 GB
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 50
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Telkom 1GB',
+                'telkom',
+                '1gb',
+                50
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+
+    <div
+        class="product"
+        data-network="telkom"
+        data-data="unlimited"
+    >
+
+        <div class="network">
+            🔵 TELKOM
+        </div>
+
+        <h3>
+            ♾️ Unlimited
+        </h3>
+
+        <p class="data">
+            VPN Configuration
+        </p>
+
+        <div class="price">
+            KSh 100
+        </div>
+
+        <button
+            class="buy"
+            onclick="buyProduct(
+                'Telkom Unlimited',
+                'telkom',
+                'unlimited',
+                100
+            )"
+        >
+            Buy Now
+        </button>
+
+    </div>
+
+</div>
+
+</section><!-- HOW IT WORKS --><section
+    class="info"
+    id="info"
+><div class="title">
+
+    <h2>
+        How It Works
+    </h2>
+
+    <p>
+        Simple and straightforward
+    </p>
+
+</div>
+
+
+<div class="info-grid">
+
+    <div class="info-card">
+
+        <div class="icon">
+            1️⃣
+        </div>
+
+        <h3>
+            Choose Package
+        </h3>
+
+        <p>
+            Select your network and preferred
+            VPN package.
+        </p>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="icon">
+            2️⃣
+        </div>
+
+        <h3>
+            Make Payment
+        </h3>
+
+        <p>
+            Enter your payment details and
+            complete the payment process.
+        </p>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="icon">
+            3️⃣
+        </div>
+
+        <h3>
+            Receive File
+        </h3>
+
+        <p>
+            After payment verification,
+            receive your VPN configuration.
+        </p>
+
+    </div>
+
+</div>
+
+</section><!-- CONTACT --><section
+    class="contact"
+    id="contact"
+><div class="title">
+
+    <h2>
+        Need Help?
+    </h2>
+
+    <p>
+        Contact ADEZ TECH support.
+    </p>
+
+</div>
+
+
+<p>
+    📱 WhatsApp:
+
+    <a
+        href="https://wa.me/254111783552"
+        target="_blank"
+    >
+        +254 111 783 552
     </a>
 
-</section>
+</p>
 
 
-<!-- STORE -->
-<section class="store" id="store">
+<p>
+    📧 Email:
 
-    <div class="title">
-        <h2>VPN Store</h2>
-        <p>Choose your network and preferred package</p>
-    </div>
+    <a
+        href="mailto:support@adeztech.com"
+    >
+        support@adeztech.com
+    </a>
 
+</p>
 
-    <!-- NETWORK FILTERS -->
-    <div class="filters">
+</section><!-- FOOTER --><footer><p>
+    © 2026 ADEZ TECH. All Rights Reserved.
+</p>
 
-        <button class="filter active" onclick="filterProducts('all',this)">
-            All
-        </button>
+<p>
+    Code • Create • Innovate • Grow 🚀
+</p>
 
-        <button class="filter" onclick="filterProducts('safaricom',this)">
-            🟢 Safaricom
-        </button>
+</footer><script>
 
-        <button class="filter" onclick="filterProducts('airtel',this)">
-            🔴 Airtel
-        </button>
-
-        <button class="filter" onclick="filterProducts('telkom',this)">
-            🔵 Telkom
-        </button>
-
-    </div>
-
-
-    <!-- DATA FILTERS -->
-    <div class="filters">
-
-        <button class="filter" onclick="filterData('all',this)">
-            All Packages
-        </button>
-
-        <button class="filter" onclick="filterData('300mb',this)">
-            300 MB
-        </button>
-
-        <button class="filter" onclick="filterData('500mb',this)">
-            500 MB
-        </button>
-
-        <button class="filter" onclick="filterData('1gb',this)">
-            1 GB
-        </button>
-
-        <button class="filter" onclick="filterData('unlimited',this)">
-            ♾️ Unlimited
-        </button>
-
-    </div>
-
-
-    <!-- PRODUCTS -->
-    <div class="products" id="products">
-
-
-        <!-- SAFARICOM -->
-
-        <div class="product" data-network="safaricom" data-data="300mb">
-            <div class="network">🟢 SAFARICOM</div>
-            <h3>300 MB</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 20</div>
-            <button class="buy" onclick="buyProduct('Safaricom 300MB')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <div class="product" data-network="safaricom" data-data="500mb">
-            <div class="network">🟢 SAFARICOM</div>
-            <h3>500 MB</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 30</div>
-            <button class="buy" onclick="buyProduct('Safaricom 500MB')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <div class="product" data-network="safaricom" data-data="1gb">
-            <div class="network">🟢 SAFARICOM</div>
-            <h3>1 GB</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 50</div>
-            <button class="buy" onclick="buyProduct('Safaricom 1GB')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <div class="product" data-network="safaricom" data-data="unlimited">
-            <div class="network">🟢 SAFARICOM</div>
-            <h3>♾️ Unlimited</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 100</div>
-            <button class="buy" onclick="buyProduct('Safaricom Unlimited')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <!-- AIRTEL -->
-
-        <div class="product" data-network="airtel" data-data="300mb">
-            <div class="network">🔴 AIRTEL</div>
-            <h3>300 MB</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 20</div>
-            <button class="buy" onclick="buyProduct('Airtel 300MB')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <div class="product" data-network="airtel" data-data="500mb">
-            <div class="network">🔴 AIRTEL</div>
-            <h3>500 MB</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 30</div>
-            <button class="buy" onclick="buyProduct('Airtel 500MB')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <div class="product" data-network="airtel" data-data="1gb">
-            <div class="network">🔴 AIRTEL</div>
-            <h3>1 GB</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 50</div>
-            <button class="buy" onclick="buyProduct('Airtel 1GB')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <div class="product" data-network="airtel" data-data="unlimited">
-            <div class="network">🔴 AIRTEL</div>
-            <h3>♾️ Unlimited</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 100</div>
-            <button class="buy" onclick="buyProduct('Airtel Unlimited')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <!-- TELKOM -->
-
-        <div class="product" data-network="telkom" data-data="300mb">
-            <div class="network">🔵 TELKOM</div>
-            <h3>300 MB</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 20</div>
-            <button class="buy" onclick="buyProduct('Telkom 300MB')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <div class="product" data-network="telkom" data-data="500mb">
-            <div class="network">🔵 TELKOM</div>
-            <h3>500 MB</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 30</div>
-            <button class="buy" onclick="buyProduct('Telkom 500MB')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <div class="product" data-network="telkom" data-data="1gb">
-            <div class="network">🔵 TELKOM</div>
-            <h3>1 GB</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 50</div>
-            <button class="buy" onclick="buyProduct('Telkom 1GB')">
-                Buy Now
-            </button>
-        </div>
-
-
-        <div class="product" data-network="telkom" data-data="unlimited">
-            <div class="network">🔵 TELKOM</div>
-            <h3>♾️ Unlimited</h3>
-            <p class="data">VPN Configuration</p>
-            <div class="price">KSh 100</div>
-            <button class="buy" onclick="buyProduct('Telkom Unlimited')">
-                Buy Now
-            </button>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- HOW IT WORKS -->
-<section class="info" id="info">
-
-    <div class="title">
-        <h2>How It Works</h2>
-        <p>Simple and straightforward</p>
-    </div>
-
-    <div class="info-grid">
-
-        <div class="info-card">
-            <div class="icon">1️⃣</div>
-            <h3>Choose Package</h3>
-            <p>
-                Select your network and preferred
-                VPN package.
-            </p>
-        </div>
-
-        <div class="info-card">
-            <div class="icon">2️⃣</div>
-            <h3>Make Payment</h3>
-            <p>
-                Complete your payment through
-                the available payment method.
-            </p>
-        </div>
-
-        <div class="info-card">
-            <div class="icon">3️⃣</div>
-            <h3>Receive File</h3>
-            <p>
-                Your purchased configuration can
-                be delivered after payment confirmation.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-
-    <div class="title">
-        <h2>Need Help?</h2>
-        <p>Contact ADEZ TECH support.</p>
-    </div>
-
-    <p>
-        📱 WhatsApp:
-        <a href="https://wa.me/254111783552" target="_blank">
-            +254 111 783 552
-        </a>
-    </p>
-
-    <p>
-        📧 Email:
-        <a href="mailto:support@adeztech.com">
-            support@adeztech.com
-        </a>
-    </p>
-
-</section>
-
-
-<!-- FOOTER -->
-<footer>
-
-    <p>
-        © 2026 ADEZ TECH. All Rights Reserved.
-    </p>
-
-    <p>
-        Code • Create • Innovate • Grow 🚀
-    </p>
-
-</footer>
-
-
-<script>
-
-let selectedNetwork = "all";
-let selectedData = "all";
-
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
 function toggleMenu(){
 
     document
-    .getElementById("navLinks")
-    .classList.toggle("active");
+        .getElementById("navLinks")
+        .classList.toggle("active");
 
 }
 
 
-function filterProducts(network,button){
+/* =========================================================
+   FILTER VARIABLES
+========================================================= */
+
+let selectedNetwork = "all";
+
+let selectedData = "all";
+
+
+/* =========================================================
+   NETWORK FILTER
+========================================================= */
+
+function filterProducts(
+    network,
+    button
+){
 
     selectedNetwork = network;
 
+
     document
-    .querySelectorAll(".filters:first-of-type .filter")
-    .forEach(btn => btn.classList.remove("active"));
+        .querySelectorAll(
+            ".filters:first-of-type .filter"
+        )
+        .forEach(
+            btn =>
+                btn.classList.remove("active")
+        );
+
 
     button.classList.add("active");
+
 
     applyFilters();
 
 }
 
 
-function filterData(data,button){
+/* =========================================================
+   DATA FILTER
+========================================================= */
+
+function filterData(
+    data,
+    button
+){
 
     selectedData = data;
 
+
     document
-    .querySelectorAll(".filters:nth-of-type(2) .filter")
-    .forEach(btn => btn.classList.remove("active"));
+        .querySelectorAll(
+            ".filters:nth-of-type(2) .filter"
+        )
+        .forEach(
+            btn =>
+                btn.classList.remove("active")
+        );
+
 
     button.classList.add("active");
+
 
     applyFilters();
 
 }
 
+
+/* =========================================================
+   APPLY FILTERS
+========================================================= */
 
 function applyFilters(){
 
     const products =
-    document.querySelectorAll(".product");
+        document.querySelectorAll(
+            ".product"
+        );
 
-    products.forEach(product => {
 
-        const network =
-        product.dataset.network;
+    products.forEach(
+        product => {
 
-        const data =
-        product.dataset.data;
+            const network =
+                product.dataset.network;
 
-        const networkMatch =
-        selectedNetwork === "all" ||
-        network === selectedNetwork;
+            const data =
+                product.dataset.data;
 
-        const dataMatch =
-        selectedData === "all" ||
-        data === selectedData;
 
-        if(networkMatch && dataMatch){
+            const networkMatch =
+                selectedNetwork === "all" ||
+                network === selectedNetwork;
 
-            product.style.display = "block";
 
-        }else{
+            const dataMatch =
+                selectedData === "all" ||
+                data === selectedData;
 
-            product.style.display = "none";
+
+            if(
+                networkMatch &&
+                dataMatch
+            ){
+
+                product.style.display =
+                    "block";
+
+            }else{
+
+                product.style.display =
+                    "none";
+
+            }
 
         }
-
-    });
+    );
 
 }
 
 
-function buyProduct(product){
+/* =========================================================
+   BUY PRODUCT
+========================================================= */
 
-    const message =
-    "Hello ADEZ TECH, I want to buy: " + product;
+function buyProduct(
+    product,
+    network,
+    packageType,
+    price
+){
 
     const url =
-    "https://wa.me/254111783552?text=" +
-    encodeURIComponent(message);
+        "payment.html?" +
 
-    window.open(url,"_blank");
+        "product=" +
+        encodeURIComponent(product) +
+
+        "&network=" +
+        encodeURIComponent(network) +
+
+        "&package=" +
+        encodeURIComponent(packageType) +
+
+        "&price=" +
+        encodeURIComponent(price);
+
+
+    window.location.href = url;
 
 }
 
-</script>
-
-</body>
-</html>
+</script></body>
+    </html>

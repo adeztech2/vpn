@@ -2,8 +2,8 @@
 "name": "adez-tech-vpn-store",
 "version": "1.0.0",
 "description": "ADEZ TECH VPN Store",
-"type": "commonjs",
 "main": "server.js",
+"type": "commonjs",
 "scripts": {
 "start": "node server.js",
 "dev": "node server.js"

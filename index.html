@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ADEZ TECH VPN STORE</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+}
+
+/* NAVBAR */
+nav{
+    height:70px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#080808;
+    border-bottom:1px solid #222;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:900;
+}
+
+.logo span{
+    color:#00ff88;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#00ff88;
+}
+
+.menu{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    padding:90px 7%;
+    text-align:center;
+    background:
+    radial-gradient(circle at center,rgba(0,255,136,.12),transparent 45%),
+    #050505;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #00ff88;
+    color:#00ff88;
+    padding:8px 16px;
+    border-radius:30px;
+    font-size:12px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,8vw,75px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#00ff88;
+}
+
+.hero p{
+    color:#999;
+    max-width:650px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.hero-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 25px;
+    background:#00ff88;
+    color:#000;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* STORE */
+.store{
+    padding:70px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.title h2{
+    font-size:38px;
+}
+
+.title p{
+    color:#777;
+    margin-top:8px;
+}
+
+/* FILTERS */
+.filters{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.filter{
+    padding:11px 18px;
+    background:#111;
+    color:#aaa;
+    border:1px solid #292929;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.filter.active,
+.filter:hover{
+    background:#00ff88;
+    color:#000;
+    border-color:#00ff88;
+}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.product{
+    background:#0b0b0b;
+    border:1px solid #202020;
+    border-radius:15px;
+    padding:25px;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-6px);
+    border-color:#00ff88;
+}
+
+.network{
+    display:inline-block;
+    font-size:12px;
+    padding:6px 10px;
+    background:#151515;
+    border-radius:20px;
+    color:#00ff88;
+    margin-bottom:18px;
+}
+
+.product h3{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.product .data{
+    color:#aaa;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.price small{
+    font-size:13px;
+    color:#777;
+}
+
+.buy{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:7px;
+    background:#00ff88;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.buy:hover{
+    opacity:.85;
+}
+
+/* INFO */
+.info{
+    padding:70px 7%;
+    background:#080808;
+}
+
+.info-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.info-card{
+    text-align:center;
+    padding:30px;
+    background:#0d0d0d;
+    border:1px solid #202020;
+    border-radius:15px;
+}
+
+.info-card .icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.info-card h3{
+    margin-bottom:8px;
+}
+
+.info-card p{
+    color:#888;
+    font-size:14px;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+    padding:70px 7%;
+}
+
+.contact p{
+    color:#888;
+    margin:10px;
+}
+
+.contact a{
+    color:#00ff88;
+    text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid #222;
+    color:#666;
+    font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#080808;
+        flex-direction:column;
+        padding:25px;
+        text-align:center;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+
+    <div class="logo">
+        ADEZ<span>TECH</span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#store">VPN Store</a></li>
+        <li><a href="#info">How It Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="badge">
+        ⚡ ADEZ TECH VPN STORE
+    </div>
+
+    <h1>
+        Fast & Reliable<br>
+        <span>VPN Solutions</span>
+    </h1>
+
+    <p>
+        Browse our VPN configuration store and choose
+        the package that suits your needs.
+        Select your network and data package below.
+    </p>
+
+    <a href="#store" class="hero-btn">
+        🛒 Browse VPN Store
+    </a>
+
+</section>
+
+
+<!-- STORE -->
+<section class="store" id="store">
+
+    <div class="title">
+        <h2>VPN Store</h2>
+        <p>Choose your network and preferred package</p>
+    </div>
+
+
+    <!-- NETWORK FILTERS -->
+    <div class="filters">
+
+        <button class="filter active" onclick="filterProducts('all',this)">
+            All
+        </button>
+
+        <button class="filter" onclick="filterProducts('safaricom',this)">
+            🟢 Safaricom
+        </button>
+
+        <button class="filter" onclick="filterProducts('airtel',this)">
+            🔴 Airtel
+        </button>
+
+        <button class="filter" onclick="filterProducts('telkom',this)">
+            🔵 Telkom
+        </button>
+
+    </div>
+
+
+    <!-- DATA FILTERS -->
+    <div class="filters">
+
+        <button class="filter" onclick="filterData('all',this)">
+            All Packages
+        </button>
+
+        <button class="filter" onclick="filterData('300mb',this)">
+            300 MB
+        </button>
+
+        <button class="filter" onclick="filterData('500mb',this)">
+            500 MB
+        </button>
+
+        <button class="filter" onclick="filterData('1gb',this)">
+            1 GB
+        </button>
+
+        <button class="filter" onclick="filterData('unlimited',this)">
+            ♾️ Unlimited
+        </button>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+    <div class="products" id="products">
+
+
+        <!-- SAFARICOM -->
+
+        <div class="product" data-network="safaricom" data-data="300mb">
+            <div class="network">🟢 SAFARICOM</div>
+            <h3>300 MB</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 20</div>
+            <button class="buy" onclick="buyProduct('Safaricom 300MB')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="product" data-network="safaricom" data-data="500mb">
+            <div class="network">🟢 SAFARICOM</div>
+            <h3>500 MB</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 30</div>
+            <button class="buy" onclick="buyProduct('Safaricom 500MB')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="product" data-network="safaricom" data-data="1gb">
+            <div class="network">🟢 SAFARICOM</div>
+            <h3>1 GB</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 50</div>
+            <button class="buy" onclick="buyProduct('Safaricom 1GB')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="product" data-network="safaricom" data-data="unlimited">
+            <div class="network">🟢 SAFARICOM</div>
+            <h3>♾️ Unlimited</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 100</div>
+            <button class="buy" onclick="buyProduct('Safaricom Unlimited')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <!-- AIRTEL -->
+
+        <div class="product" data-network="airtel" data-data="300mb">
+            <div class="network">🔴 AIRTEL</div>
+            <h3>300 MB</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 20</div>
+            <button class="buy" onclick="buyProduct('Airtel 300MB')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="product" data-network="airtel" data-data="500mb">
+            <div class="network">🔴 AIRTEL</div>
+            <h3>500 MB</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 30</div>
+            <button class="buy" onclick="buyProduct('Airtel 500MB')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="product" data-network="airtel" data-data="1gb">
+            <div class="network">🔴 AIRTEL</div>
+            <h3>1 GB</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 50</div>
+            <button class="buy" onclick="buyProduct('Airtel 1GB')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="product" data-network="airtel" data-data="unlimited">
+            <div class="network">🔴 AIRTEL</div>
+            <h3>♾️ Unlimited</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 100</div>
+            <button class="buy" onclick="buyProduct('Airtel Unlimited')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <!-- TELKOM -->
+
+        <div class="product" data-network="telkom" data-data="300mb">
+            <div class="network">🔵 TELKOM</div>
+            <h3>300 MB</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 20</div>
+            <button class="buy" onclick="buyProduct('Telkom 300MB')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="product" data-network="telkom" data-data="500mb">
+            <div class="network">🔵 TELKOM</div>
+            <h3>500 MB</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 30</div>
+            <button class="buy" onclick="buyProduct('Telkom 500MB')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="product" data-network="telkom" data-data="1gb">
+            <div class="network">🔵 TELKOM</div>
+            <h3>1 GB</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 50</div>
+            <button class="buy" onclick="buyProduct('Telkom 1GB')">
+                Buy Now
+            </button>
+        </div>
+
+
+        <div class="product" data-network="telkom" data-data="unlimited">
+            <div class="network">🔵 TELKOM</div>
+            <h3>♾️ Unlimited</h3>
+            <p class="data">VPN Configuration</p>
+            <div class="price">KSh 100</div>
+            <button class="buy" onclick="buyProduct('Telkom Unlimited')">
+                Buy Now
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="info" id="info">
+
+    <div class="title">
+        <h2>How It Works</h2>
+        <p>Simple and straightforward</p>
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <div class="icon">1️⃣</div>
+            <h3>Choose Package</h3>
+            <p>
+                Select your network and preferred
+                VPN package.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">2️⃣</div>
+            <h3>Make Payment</h3>
+            <p>
+                Complete your payment through
+                the available payment method.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">3️⃣</div>
+            <h3>Receive File</h3>
+            <p>
+                Your purchased configuration can
+                be delivered after payment confirmation.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="title">
+        <h2>Need Help?</h2>
+        <p>Contact ADEZ TECH support.</p>
+    </div>
+
+    <p>
+        📱 WhatsApp:
+        <a href="https://wa.me/254111783552" target="_blank">
+            +254 111 783 552
+        </a>
+    </p>
+
+    <p>
+        📧 Email:
+        <a href="mailto:support@adeztech.com">
+            support@adeztech.com
+        </a>
+    </p>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 ADEZ TECH. All Rights Reserved.
+    </p>
+
+    <p>
+        Code • Create • Innovate • Grow 🚀
+    </p>
+
+</footer>
+
+
+<script>
+
+let selectedNetwork = "all";
+let selectedData = "all";
+
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("active");
+
+}
+
+
+function filterProducts(network,button){
+
+    selectedNetwork = network;
+
+    document
+    .querySelectorAll(".filters:first-of-type .filter")
+    .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    applyFilters();
+
+}
+
+
+function filterData(data,button){
+
+    selectedData = data;
+
+    document
+    .querySelectorAll(".filters:nth-of-type(2) .filter")
+    .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    applyFilters();
+
+}
+
+
+function applyFilters(){
+
+    const products =
+    document.querySelectorAll(".product");
+
+    products.forEach(product => {
+
+        const network =
+        product.dataset.network;
+
+        const data =
+        product.dataset.data;
+
+        const networkMatch =
+        selectedNetwork === "all" ||
+        network === selectedNetwork;
+
+        const dataMatch =
+        selectedData === "all" ||
+        data === selectedData;
+
+        if(networkMatch && dataMatch){
+
+            product.style.display = "block";
+
+        }else{
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+function buyProduct(product){
+
+    const message =
+    "Hello ADEZ TECH, I want to buy: " + product;
+
+    const url =
+    "https://wa.me/254111783552?text=" +
+    encodeURIComponent(message);
+
+    window.open(url,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
